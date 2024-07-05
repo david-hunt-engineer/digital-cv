@@ -183,27 +183,6 @@
 	.current-experience {
 		animation: colorChange 2s infinite alternate; /* Apply the animation */
 	}
-	/* Responsive layout for smaller screens */
-	@media (max-width: 800px) {
-		.job {
-			flex-direction: column; /* Stack items vertically */
-			/* align-items: center; */
-			text-align: left; /* Center text on small screens */
-		}
-
-		.job-left {
-			align-items: center;
-			align-text: center;
-
-			padding-right: 0; /* Remove right padding */
-			margin-bottom: 20px; /* Add some space below the image and duration */
-		}
-
-		.job-right {
-			text-align: left; /* Align text to left for readability */
-			margin-bottom: 20px; /* Add some space below the image and duration */
-		}
-	}
 
 	@keyframes colorChange {
 		0% {
