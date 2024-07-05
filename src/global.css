@@ -1,0 +1,85 @@
+h1, h2 {
+    font-family: 'Abril Fatface', serif;
+    text-align: center;
+    padding: 10;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #ffffff; /* Darker color for the heading */
+    font-size: 3.5rem; /* Increase font size for emphasis */
+    font-family: 'Abril Fatface', serif;
+    font-weight: 700;
+    font-optical-sizing: auto;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+
+}
+
+h3{
+    padding-left:20px;
+}
+
+.gradient {
+    /* background: linear-gradient(135deg, #0292be, #66248d); */
+    background: linear-gradient(135deg, #e9f4ff, #5580ec);
+    /* background: linear-gradient(135deg, #d0f8ec, #cdd3e1); */
+
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+
+
+
+	/* Responsive Design */
+	@media (max-width: 1000px) {
+		.container {
+			flex-direction: column;
+			padding: 10px;
+			margin-right: 5px;
+		}
+
+		#sidebar-container {
+			position: relative;
+            justify-content: center;
+            align-items: center;
+			/* height: max-content; */
+			/* margin-left: 20px; */
+			/* margin-right: 20px; */
+            width: 100%;
+
+		}
+		.sidebar {
+			/* flex: column; */
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+
+            justify-content: center;
+
+			/* Stack items vertically */
+			/* flex-direction: column; */
+			margin-left: 5px;
+			margin-right: 5px;
+			margin-bottom: 10px;
+            width: 100%;
+
+		}
+
+		.content {
+			margin-left: 5px;
+			margin-right: 5px;
+			min-width: 800px;
+			max-width: 800px;
+
+			padding: 10px;
+		}
+	}
