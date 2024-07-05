@@ -31,7 +31,7 @@
 		gap: 20px;
 	}
 	.project {
-		border-radius: 30px;
+		border-radius: 38px;
 		padding: 20px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		background-color: #fff;

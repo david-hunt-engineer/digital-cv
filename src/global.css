@@ -208,18 +208,26 @@ body {
     }
     /* General Container Style */
     .cv-container {
-        display: relative;
+        /* display: relative; */
         /* position: absolute; */
         flex-direction: column;
         width:100%;
         /* max-width: 800px; */
-        margin: 5px;
+        /* margin: 5px; */
         padding: 5px;
-
-        padding-left: 100px;
+        margin:0px;
+        /* padding-left: 30px; */
         z-index: 0;
     }
+    .cv-content {
+        position: relative;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 5px;
+        min-width: 375px;
+        box-shadow: none;
 
+    }
     .sidebar-container {
         position: fixed;
         top: 0;
@@ -236,15 +244,24 @@ body {
         overflow-y: auto; 
     
     }
-
+	.experience {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		border-radius: 30px;
+		/* padding: 0px 10px 10px 15px; */
+        padding: 8px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		background-color: #fff;
+		border: 1px solid #ddd;
+	}
     .sidebar {
         /* max-width: 100%; */
         position: fixed;
-		top: 20px;
+		top: 10px;
         height:max-content;
         transition: left 0.3s ease;
 
-		left: -80px;
+		left: -170px;
         width: max-content;
 
         /* height: max-content; */
@@ -252,7 +269,7 @@ body {
         margin-right: 5px;
         margin-bottom: 10px;
         padding-left: 60px;        
-        border-radius: 40px;
+        border-radius: 35px;
     
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: left;
@@ -263,7 +280,7 @@ body {
         z-index: 20;
     }
 	.sidebar.open {
-		left:-40px; /* Move the sidebar into view */
+		left:-30px; /* Move the sidebar into view */
 	}
 
     .about {
@@ -276,18 +293,12 @@ body {
 	}
 	.about p {
         max-width: 100%;
-		font-size: 1.2rem; /* Standard font size */
+		font-size: 1.rem; /* Standard font size */
 		line-height: 1.1; /* Increase line height for better readability */
-		text-align: justify; /* Justify text for a neat look */
-		margin: 0;
+		margin: 0px;
+        text-align: left;
 	}
-    .cv-content {
-        position: relative;
-        margin-left: 5px;
-        margin-right: 5px;
-        padding: 10px;
-        min-width: 375px;
-    }
+
 
     .job {
         flex-direction: column; /*Stack items vertically
@@ -297,7 +308,6 @@ body {
 
     .job-left {
         align-items: center;
-
         padding-right: 0; /* Remove right padding */
         margin-bottom: 20px; /* Add some space below the image and duration */
     }
@@ -305,8 +315,43 @@ body {
     .job-right {
         text-align: left; /* Align text to left for readability */
         margin-bottom: 20px; /* Add some space below the image and duration */
+        margin-right: 0px;
+        padding:4px;
     }
 
+	.job-right {
+		flex: 1;
+	}
+
+	.job-right h3 {
+		margin: 0;
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+
+	.job-right p li{
+		margin: 5px 0;
+		font-weight: bold;
+		color: #333;
+        font-size: .8rem;
+
+	}
+
+	.job-right .description {
+		margin-top: 10px;
+	}
+
+	.job-right .description ul {
+		list-style-type: disc; /* Use disc for rounded bullets */
+		padding-left: -5px; /* Indent the list */
+	}
+
+	.job-right .description li {
+		margin-bottom: 5px; /* Space between list items */
+	}
+	.current-experience {
+		animation: colorChange 2s infinite alternate; /* Apply the animation */
+	}
     h1, h2 {
         font-family: 'Abril Fatface', serif;
         text-align: left;
@@ -332,6 +377,7 @@ body {
     .sidebar li a {
         font-size: .5rem;
         padding: 0px;
+        margin-left: -20px;
 
     }
 }
