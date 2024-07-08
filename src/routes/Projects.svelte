@@ -6,6 +6,12 @@
 			link: '#',
 			tags: ['AI', 'Analytics'],
 		},
+		{
+			title: 'etc..',
+			description: '',
+			link: '#',
+			tags: ['AI', 'Analytics'],
+		},
 	];
 </script>
 
@@ -31,6 +37,8 @@
 		gap: 20px;
 	}
 	.project {
+		display: flex;
+		flex-direction: columns;
 		border-radius: 38px;
 		padding: 20px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

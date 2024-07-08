@@ -5,6 +5,12 @@
 	let windowWidth = window.innerWidth;
 	let sidebar;
 	let shadow;
+	let startX;
+	let startY;
+	let endX;
+	let endY;
+
+	const touch = matchMedia('(hover: none)').matches;
 
 	const updateWindowWidth = () => {
 		windowWidth = window.innerWidth;
@@ -16,6 +22,7 @@
 		if (windowWidth < 1000) {
 			isOpen = true;
 			sidebar.classList.toggle('open', isOpen);
+			shadow.classList.toggle('open', isOpen);
 		}
 	};
 
@@ -28,16 +35,27 @@
 		const rotateX = (y / height) * -15; // Adjust the sensitivity here
 		const rotateY = (x / width) * 15; // Adjust the sensitivity here
 
-		sidebar.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+		// Shadow calculations for sunlight
+		let shadowOffsetX = 20 - (x / width) * 24; // Adjust shadow X position based on light source
+		let shadowOffsetY = 20 + (y / height) * 24; // Adjust shadow Y position based on light source
 
-		// Shadow calculations for sunlight coming from the right
-		const shadowOffsetX = 20 - (x / width) * 24; // Adjust shadow X position based on light source
-		const shadowOffsetY = 20 + (y / height) * 24; // Adjust shadow Y position based on light source
+		if (!touch) {
+			sidebar.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+			shadow.style.transform = `translateX(${shadowOffsetX}px) translateY(${shadowOffsetY}px) perspective(1300px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+			shadow.style.zIndex = `100`;
+			sidebar.style.zIndex = `100`;
+		} else {
+			sidebar.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-		// Apply the perspective transform to the shadow
-		shadow.style.transform = `translateX(${shadowOffsetX}px) translateY(${shadowOffsetY}px) perspective(1300px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-		shadow.style.zIndex = `100`;
-		sidebar.style.zIndex = `100`;
+			// Shadow calculations for sunlight coming from the right
+			shadowOffsetX = 10 - (x / width) * 24; // Adjust shadow X position based on light source
+			shadowOffsetY = 10 + (y / height) * 24; // Adjust shadow Y position based on light source
+
+			// Apply the perspective transform to the shadow
+			shadow.style.transform = `translateX(${shadowOffsetX}px) translateY(${shadowOffsetY}px) perspective(1300px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+			shadow.style.zIndex = `100`;
+			sidebar.style.zIndex = `100`;
+		}
 	};
 
 	const handlePulltabClick = () => {
@@ -52,9 +70,9 @@
 		if (windowWidth < 1000) {
 			isOpen = false;
 			sidebar.classList.toggle('open', isOpen);
+			shadow.classList.toggle('open', isOpen);
+			shadow.style.transform = 'translateX(-5px) translateY(30px)';
 		}
-		// Optional: Reset the transformation on mouse leave
-		shadow.style.transform = 'translateX(10px) translateY(10px)';
 	};
 
 	const updateShadowSize = () => {
@@ -66,6 +84,41 @@
 		sidebar.style.zIndex = `100`;
 	};
 
+	function handleTouchStart(event) {
+		const touch = event.touches[0];
+		startX = touch.clientX;
+		startY = touch.clientY;
+	}
+
+	function handleTouchMove(event) {
+		const touch = event.touches[0];
+		endX = touch.clientX;
+		endY = touch.clientY;
+	}
+
+	function handleTouchEnd() {
+		const diffX = endX - startX;
+		const diffY = endY - startY;
+
+		if (Math.abs(diffX) > Math.abs(diffY) && diffX > 50) {
+			console.log('Swipe Right Detected');
+
+			if (windowWidth < 1000) {
+				isOpen = true;
+				sidebar.classList.toggle('open', isOpen);
+				shadow.classList.toggle('open', isOpen);
+			}
+		} else if (Math.abs(diffX) > Math.abs(diffY) && diffX < -50) {
+			console.log('Swipe Left Detected');
+
+			if (windowWidth < 1000) {
+				isOpen = false;
+				sidebar.classList.toggle('open', isOpen);
+				shadow.classList.toggle('open', isOpen);
+			}
+		}
+	}
+
 	onMount(() => {
 		// Set the initial window width
 		updateWindowWidth();
@@ -76,7 +129,12 @@
 		// Initial width update
 		updateShadowSize();
 
-		// Event listeners
+		// Add touch event listeners
+		document.addEventListener('touchstart', handleTouchStart);
+		document.addEventListener('touchmove', handleTouchMove);
+		document.addEventListener('touchend', handleTouchEnd);
+
+		// Add mouse event listeners
 		sidebar.addEventListener('mouseenter', handleMouseEnter);
 		sidebar.addEventListener('mousemove', handleMouseMove);
 		sidebar.addEventListener('mouseleave', handleMouseLeave);
@@ -87,6 +145,10 @@
 		resizeObserver.observe(sidebar);
 
 		return () => {
+			document.removeEventListener('touchstart', handleTouchStart);
+			document.removeEventListener('touchmove', handleTouchMove);
+			document.removeEventListener('touchend', handleTouchEnd);
+
 			sidebar.removeEventListener('mouseenter', handleMouseEnter);
 			sidebar.removeEventListener('mousemove', handleMouseMove);
 			sidebar.removeEventListener('mouseleave', handleMouseLeave);
@@ -96,9 +158,9 @@
 	});
 </script>
 
-<div class="sidebar-container">
+<aside class="sidebar-container">
 	<div bind:this={shadow} class="shadow"></div>
-	<aside bind:this={sidebar} class="sidebar">
+	<div bind:this={sidebar} class="sidebar">
 		<div class="title">
 			<h1>David<br />Hunt</h1>
 		</div>
@@ -106,31 +168,12 @@
 			<ul>
 				<li><a href="#about">About</a></li>
 				<li><a href="#experience">Experience</a></li>
+				<li><a href="#education">Education</a></li>
 				<li><a href="#projects">Projects</a></li>
 			</ul>
 		</nav>
-		<!-- <div bind:this={pulltab} class="pull-tab"> -->
-		<!-- &#9776; Hamburger icon -->
-		<!-- </div> -->
-	</aside>
-</div>
+	</div>
+</aside>
 
 <style>
-	/* .pull-tab {
-		display: none;
-		position: fixed;
-		top: 20px;
-		left: 120px;
-		width: 40px;
-		height: 50px;
-		background: #ffffff;
-		cursor: pointer;
-		z-index: 1000;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #181047;
-		border-radius: 0 5px 5px 0;
-		transition: left 0.3s ease;
-	} */
 </style>

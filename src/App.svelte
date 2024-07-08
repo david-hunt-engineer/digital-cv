@@ -1,6 +1,8 @@
 <script>
 	import About from './routes/About.svelte';
 	import Experience from './routes/Experience.svelte';
+	import Education from './routes/Education.svelte';
+
 	import Projects from './routes/Projects.svelte';
 	import Sidebar from './routes/Sidebar_v2.svelte';
 	import './global.css';
@@ -24,8 +26,8 @@
 <!-- svelte-ignore a11y-missing-attribute -->
 <html>
 	<div class="cv-container">
-		<Sidebar />
-		<main class="cv-content gradient">
+		<Sidebar class="sidebar-object" />
+		<div class="cv-content gradient">
 			<section id="about">
 				<About />
 			</section>
@@ -33,11 +35,13 @@
 			<section id="experience">
 				<Experience />
 			</section>
-
+			<section id="education">
+				<Education />
+			</section>
 			<section id="projects">
 				<Projects />
 			</section>
-		</main>
+		</div>
 	</div>
 </html>
 
