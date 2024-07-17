@@ -1,10 +1,12 @@
 <script>
-	import About from './routes/About.svelte';
-	import Experience from './routes/Experience.svelte';
-	import Education from './routes/Education.svelte';
+	import { SpeedInsights } from '@vercel/speed-insights/next';
 
-	import Projects from './routes/Projects.svelte';
-	import Sidebar from './routes/Sidebar.svelte';
+	import About from './lib/About.svelte';
+	import Experience from './lib/Experience.svelte';
+	import Education from './lib/Education.svelte';
+
+	import Projects from './lib/Projects.svelte';
+	import Sidebar from './lib/Sidebar.svelte';
 	import './global.css';
 
 	// After your imports
@@ -26,7 +28,7 @@
 <!-- svelte-ignore a11y-missing-attribute -->
 <html>
 	<div class="cv-container">
-		<Sidebar class="sidebar-object" />
+		<Sidebar />
 		<div class="cv-content gradient">
 			<section id="about">
 				<About />
