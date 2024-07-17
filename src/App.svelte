@@ -1,6 +1,4 @@
 <script>
-	import { SpeedInsights } from '@vercel/speed-insights/next';
-
 	import About from './lib/About.svelte';
 	import Experience from './lib/Experience.svelte';
 	import Education from './lib/Education.svelte';
