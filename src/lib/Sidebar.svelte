@@ -162,7 +162,6 @@
 				xmlns="http://www.w3.org/2000/svg"
 				version="1.1"
 				xmlns:xlink="http://www.w3.org/1999/xlink"
-				xmlns:svgjs="http://svgjs.dev/svgjs"
 				viewBox="300 61 100 100"
 				><defs>
 					<linearGradient id="SvgjsLinearGradient1000" gradientTransform="rotate(343, 0.5, 0.5)">
@@ -306,7 +305,7 @@
 
 		.sidebar-container {
 			position: fixed;
-			top: 0;
+			top: 60px;
 			margin: 0px;
 			z-index: 10;
 		}
@@ -318,14 +317,12 @@
 			transition: left 0.3s ease;
 
 			left: -140px;
-			margin: px;
 			margin-right: -50px;
 			margin-left: 0px;
 
 			padding: 0px;
 			padding-left: 0px;
 			border-top-left-radius: 0px;
-			border-top-right-radius: 0px;
 			border-bottom-left-radius: 0px;
 
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
