@@ -79,9 +79,12 @@
 			z-index: 0;
 		}
 		.cv-content {
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+
 			position: relative;
-			margin-left: 5px;
-			margin-right: 5px;
+			margin-left: 0px;
+			margin-right: 0px;
 			padding: 5px;
 			min-width: 375px;
 			box-shadow: none;

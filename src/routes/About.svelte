@@ -36,8 +36,9 @@
 	@media (max-width: 1000px) {
 		.about {
 			min-width: 30%;
-			max-width: 90%;
+			max-width: 85%;
 			font-size: 0.7rem;
+			padding-left: 10%;
 		}
 		.about p {
 			max-width: 100%;
