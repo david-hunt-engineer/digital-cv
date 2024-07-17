@@ -207,7 +207,7 @@
 		top: 50%; /* Align vertically center */
 		right: 0px; /* Align to the right edge of the sidebar */
 		transform: translateY(-50%); /* Center vertically */
-		display: block; /* Change to 'none' if you want it initially hidden */
+		display: none; /* Change to 'none' if you want it initially hidden */
 		transition: transform 0.3s ease; /* Transition for all transform changes */
 	}
 	.rotate-180 {
@@ -295,6 +295,10 @@
 	}
 
 	@media (max-width: 1000px) {
+		.pull-arrow-icon {
+			display: block;
+		}
+
 		.sidebar-container {
 			position: fixed;
 			top: 0;
@@ -317,7 +321,6 @@
 			padding-left: 0px;
 			border-top-left-radius: 0px;
 			border-top-right-radius: 0px;
-
 			border-bottom-left-radius: 0px;
 
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
