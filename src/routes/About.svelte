@@ -9,7 +9,7 @@
 		strategy, team leadership, and delivery of data analysis & AI systems in a range of domains for many different New
 		Zealand organisations.
 	</p>
-	<!-- <ContactIcons></ContactIcons> -->
+	<ContactIcons></ContactIcons>
 	<!-- Add more details as needed -->
 </div>
 

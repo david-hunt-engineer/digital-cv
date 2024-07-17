@@ -57,10 +57,7 @@
 		display: flex;
 		justify-content: center;
 		gap: 10px;
-		margin-top: 30px;
-		margin-left: 100px;
-		margin-right: 100px;
-		margin-bottom: 0px;
+		margin-top: 10px;
 		font-size: 1.3rem;
 		font-weight: bold;
 		padding: 10px 15px;
@@ -70,15 +67,13 @@
 			color 0.3s ease;
 	}
 	.contact-icons a svg {
-		margin-top: -10px;
 		color: #002a42;
 		border-radius: 15px;
-		padding: 5px;
+		padding: 10px;
 	}
 	.contact-icons a svg:hover {
-		background-color: #d5dee5;
+		background-color: #ffffff;
 		color: #161616;
-		border-radius: 15px;
 	}
 	.icon {
 		margin: 10px;

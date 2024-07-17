@@ -4,7 +4,7 @@
 	import Education from './routes/Education.svelte';
 
 	import Projects from './routes/Projects.svelte';
-	import Sidebar from './routes/Sidebar_v2.svelte';
+	import Sidebar from './routes/Sidebar.svelte';
 	import './global.css';
 
 	// After your imports
