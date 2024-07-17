@@ -59,20 +59,18 @@
 		color: #555;
 	}
 
-	.tags {
-		margin-top: 10px;
-		padding-left: 20px;
-
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
-	}
-
 	.tag {
 		background-color: #f0f0f0;
 		padding: 5px 10px;
 		border-radius: 15px;
 		font-size: 0.8rem;
 		color: #333;
+	}
+
+	.tags {
+		margin-top: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
 	}
 </style>

@@ -47,4 +47,44 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+	/* General Container Style */
+	.cv-container {
+		display: flex;
+		flex-grow: 1; /* Takes up the remaining width */
+
+		/* height: 100vh; */
+
+		flex-direction: row;
+		max-width: 1200px;
+		margin: 5px auto;
+		/* padding: 15px 10% 10% 10%; */
+		z-index: 0;
+	}
+
+	/* Content Style */
+	.cv-content {
+		flex: 1;
+
+		background-color: #f9f9f9;
+		border-radius: 40px;
+		padding: 20px;
+		z-index: 2;
+		box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+	}
+	@media (max-width: 1000px) {
+		.cv-container {
+			width: 100%;
+			padding: 0px;
+			margin: 0px;
+			z-index: 0;
+		}
+		.cv-content {
+			position: relative;
+			margin-left: 5px;
+			margin-right: 5px;
+			padding: 5px;
+			min-width: 375px;
+			box-shadow: none;
+		}
+	}
 </style>

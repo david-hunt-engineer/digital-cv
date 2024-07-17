@@ -95,13 +95,6 @@
 	.degree {
 		padding-left: 0px;
 	}
-	.institution {
-		display: flex;
-		flex-direction: column;
-
-		font-weight: bold;
-		color: #333;
-	}
 	.year {
 		font-size: 1rem;
 		color: #666;

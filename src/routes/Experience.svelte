@@ -83,7 +83,7 @@
 
 <div class="experience">
 	{#each experiences as experience}
-		<div class="job">
+		<div class="job job-hover-effect">
 			<div class="job-left">
 				{#if experience.image}
 					<img
@@ -116,11 +116,11 @@
 
 <style>
 	.experience {
-		margin-top: 30px;
+		margin: 0px;
 
-		margin-bottom: 30px;
+		/* margin-bottom: -30px; */
 		border-radius: 30px;
-		padding: 30px 15px 15px 15px;
+		padding: 15px 15px 0px 15px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		background-color: #fff;
 		border: 1px solid #ddd;
@@ -128,14 +128,30 @@
 	.job {
 		display: flex;
 		align-items: flex-start;
-		margin-bottom: 20px;
-		flex-direction: row; /* Default to row direction */
+		padding: 10px;
+		margin: 10px 0px 15px 0px;
+		flex-direction: row;
 		transition: transform 0.3s;
 	}
+	.job-hover-effect {
+		background-color: rgba(255, 255, 255, 1);
+		margin-top: -1px;
+		/* margin-left: -1.5px; */
+		border: 3px solid rgba(125, 103, 103, 0);
+		border-radius: 20px;
+		box-shadow: 5px 5px 5px 0px rgba(107, 107, 107, 0);
+		transition:
+			border 500ms ease,
+			box-shadow 1000ms ease;
 
-	.job:hover {
-		transform: translateY(-5px);
+		&:hover {
+			border: 3px solid rgba(125, 103, 103, 0.1);
+			/* background-color: rgba(255, 255, 255, 1); */
+			box-shadow: 5px 5px 15px 0px rgba(107, 107, 107, 0.1);
+			transition: None;
+		}
 	}
+
 	.job-left {
 		flex: 0 0 25%; /* Fixed width for the left column */
 		text-align: center;
@@ -160,12 +176,6 @@
 		margin: 0;
 		font-size: 1.2rem;
 		font-weight: bold;
-	}
-
-	.job-right p {
-		margin: 5px 0;
-		font-weight: bold;
-		color: #333;
 	}
 
 	.job-right .description {
@@ -201,5 +211,64 @@
 		background-color: rgb(139, 139, 139);
 		border-radius: 10px;
 		padding: 5px; /* Add some padding to separate the image from the edges */
+	}
+
+	@media (max-width: 1000px) {
+		.experience {
+			margin-top: 0px;
+			margin-bottom: 30px;
+			margin-left: 0px;
+			margin-right: 0px;
+			padding: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+			border: 1px solid #ddd;
+		}
+
+		.job-left {
+			align-items: center;
+			padding-right: 0; /* Remove right padding */
+			margin-bottom: 20px; /* Add some space below the image and duration */
+		}
+
+		.job-right {
+			text-align: left; /* Align text to left for readability */
+			margin-bottom: 20px; /* Add some space below the image and duration */
+			margin-right: 0px;
+			padding: 4px;
+		}
+
+		.job-right {
+			flex: 1;
+		}
+
+		.job-right h3 {
+			margin: 0;
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+
+		.job-right p li {
+			margin: 5px 0;
+			font-weight: bold;
+			color: #333;
+			font-size: 0.8rem;
+		}
+
+		.job-right .description {
+			margin-top: 10px;
+		}
+
+		.job-right .description ul {
+			list-style-type: disc; /* Use disc for rounded bullets */
+			padding-left: -5px; /* Indent the list */
+		}
+
+		.job-right .description li {
+			margin-bottom: 5px; /* Space between list items */
+		}
+		.current-experience {
+			animation: colorChange 2s infinite alternate; /* Apply the animation */
+		}
 	}
 </style>
