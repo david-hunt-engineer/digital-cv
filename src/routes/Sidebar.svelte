@@ -82,18 +82,20 @@
 		endY = touch.clientY;
 	}
 
-	function handleTouchEnd() {
+	function handleTouchEnd(event) {
 		const diffX = endX - startX;
 		const diffY = endY - startY;
 
 		if (Math.abs(diffX) > Math.abs(diffY) && diffX > 50) {
 			console.log('Swipe Right Detected');
+			event.preventDefault();
 
 			if (windowWidth < 1000) {
 				isOpen = true;
 			}
 		} else if (Math.abs(diffX) > Math.abs(diffY) && diffX < -50) {
 			console.log('Swipe Left Detected');
+
 			if (windowWidth < 1000) {
 				isOpen = false;
 			}
