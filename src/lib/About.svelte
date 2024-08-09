@@ -21,7 +21,6 @@
 	}
 
 	.about h2 {
-		font-weight: 700;
 		margin-bottom: 15px;
 		text-align: center; /* Center the heading */
 	}

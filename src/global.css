@@ -1,15 +1,14 @@
 h1, h2 {
-    font-family: 'Abril Fatface', serif;
     text-align: center;
     padding: 10;
     margin-top: 40px;
     margin-bottom: 30px;
     color: #ffffff;
     font-size: 3.5rem;
-    font-family: 'Abril Fatface', serif;
-    font-weight: 700;
-    font-optical-sizing: auto;
-}
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-optical-sizing: none;
+  }
 
 h3{
     padding-left:20px;
@@ -97,8 +96,9 @@ button:focus {
         padding:0px;
     }
     h1, h2 {
-        font-family: 'Abril Fatface', serif;
-        padding: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
         margin-top: 4px;
         margin-bottom: 3px;
         color: #ffffff;

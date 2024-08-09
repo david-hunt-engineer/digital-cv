@@ -260,8 +260,9 @@
 		padding: 0px;
 		color: rgb(25, 6, 68);
 		font-size: 4.5rem;
-		font-family: 'Abril Fatface', serif;
-		font-weight: 700;
+		font-family: 'Montserrat', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 900;
 	}
 
 	.sidebar nav ul {
